@@ -225,6 +225,7 @@ components:
           maxLength: 255
         title:
           type: string
+        
     TaskInstance:
       type: object
       properties:
@@ -291,6 +292,10 @@ components:
           type: string
           example: sapui5://capexrd.effiiscapexrdapprover-1.0.0/effiis.capex-rd-approver
           description: UI component used to show tasks data
+        taskDecision:
+          type: string
+          example: approved
+          description: Decision which took approver on this task (approved, rejected, submitted etc.)
     WFInstance:
       type: object
       properties:
