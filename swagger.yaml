@@ -8,7 +8,7 @@ info:
     [SAP Workflow service Documentation](https://help.sap.com/viewer/p/WORKFLOW_SERVICE)
   contact:
     email: vladimir.balko@effiis.cz
-  version: 0.0.1
+  version: 0.0.2
 externalDocs:
   description: SAP Workflow service Documentation
   url: https://help.sap.com/viewer/p/WORKFLOW_SERVICE
@@ -225,6 +225,10 @@ components:
           maxLength: 255
         title:
           type: string
+        attributes:
+          type: array
+          items:
+            type: string
         
     TaskInstance:
       type: object
@@ -234,6 +238,10 @@ components:
           maxLength: 255
           description: The definition ID of the user task instance. The ID is at most 255 characters long.
           example: 'usertask1'
+        claimedAt:
+          type: string
+          format: date-time
+          description: The time when the user task instance was claimed and its status changed to RESERVED.
         completedAt:
           type: string
           format: date-time
@@ -259,6 +267,19 @@ components:
           maxLength: 255
           description: The user who is processing (has claimed) the user task instance. The user ID is at most 255 characters long.
           nullable: true
+        recipientUsers:
+          type: array
+          items:
+            type: string
+          description: The recipient users of the user task instance.
+          example: 
+            - jan.test@zentiva.com
+            - marian.komzik@kopa.com
+        recipientGroups:
+          type: array
+          items:
+            type: string
+          description: The recipient groups of the user task instance.                     
         status:
           type: string
           description: The status of the user task instance.
@@ -280,9 +301,27 @@ components:
           minLength: 36
           maxLength: 255
           description: The instance ID of the workflow the user task instance belongs to. The ID is at least 36 characters long.
+        priority:
+          type: string
+          enum:
+            - LOW
+            - MEDIUM
+            - HIGH
+            - VERY HIGH
+        dueDate:
+          type: string
+          format: date-time
+          description: The time when the user task instance is or was due to be COMPLETED.
         definitionId:
           type: string
           example: usertask1@cz.effiis.capexrdapprove
+        lastChangeAt:
+          type: string
+          format: date-time
+          description: The last time the user task instance was changed.
+        applicationScope:
+          type: string
+          description: The scope to which the definition belongs. Either "own", "shared" or a named scope.
         rootInstanceId:
           type: string
           minLength: 36
