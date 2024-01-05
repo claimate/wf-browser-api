@@ -61,7 +61,15 @@ paths:
         schema:
           maxLength: 64
           minLength: 1
-          type: string      
+          type: string    
+      - name: userid
+        in: query
+        description: The ID of user - mostly email. Used to apply content filters.
+        required: true
+        schema:
+          maxLength: 256
+          minLength: 3
+          type: string            
       responses:
         '200':
           description: Returns a list of workflow instances.
@@ -87,6 +95,14 @@ paths:
           maxLength: 36
           minLength: 36
           type: string   
+      - name: userid
+        in: query
+        description: The ID of user - mostly email. Used to apply content filters.
+        required: true
+        schema:
+          maxLength: 256
+          minLength: 3
+          type: string            
       responses:
         '200':
           description: The requested workflow instance.
@@ -112,6 +128,14 @@ paths:
           maxLength: 36
           minLength: 36
           type: string   
+      - name: userid
+        in: query
+        description: The ID of user - mostly email. Used to apply content filters.
+        required: true
+        schema:
+          maxLength: 256
+          minLength: 3
+          type: string            
       responses:
         '200':
           description: The requested workflow instance + tasks.
@@ -136,6 +160,14 @@ paths:
             maxLength: 36
             minLength: 36
             type: string
+        - name: userid
+          in: query
+          description: The ID of user - mostly email. Used to apply content filters.
+          required: true
+          schema:
+            maxLength: 256
+            minLength: 3
+            type: string              
       responses:
         '200':
           description: succesful operation
@@ -159,7 +191,15 @@ paths:
         schema:
           maxLength: 36
           minLength: 36
-          type: string       
+          type: string    
+      - name: userid
+        in: query
+        description: The ID of user - mostly email. Used to apply content filters.
+        required: true
+        schema:
+          maxLength: 256
+          minLength: 3
+          type: string            
       responses:
         200:
           description: Returns the requested user task.
@@ -183,6 +223,14 @@ paths:
           maxLength: 36
           minLength: 36
           type: string
+      - name: userid
+        in: query
+        description: The ID of user - mostly email. Used to apply content filters.
+        required: true
+        schema:
+          maxLength: 256
+          minLength: 3
+          type: string            
       responses:
         200:
           description: Returns the context of the specified user task.
