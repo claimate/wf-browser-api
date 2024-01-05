@@ -29,6 +29,15 @@ paths:
       summary: Get list of definitions with basic data
       description: Get list of definitions with basic data. 
       operationId: getListOfDefinitions
+      parameters:
+      - name: userid
+        in: query
+        description: The ID of user - mostly email. Used to apply content filters.
+        required: true
+        schema:
+          maxLength: 256
+          minLength: 3
+          type: string   
       responses:
         '200':
           description: succesful operation
