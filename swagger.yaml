@@ -61,15 +61,7 @@ paths:
         schema:
           maxLength: 64
           minLength: 1
-          type: string    
-      - name: userid
-        in: query
-        description: The ID of user - mostly email. Used to apply content filters.
-        required: true
-        schema:
-          maxLength: 256
-          minLength: 3
-          type: string            
+          type: string           
       responses:
         '200':
           description: Returns a list of workflow instances.
